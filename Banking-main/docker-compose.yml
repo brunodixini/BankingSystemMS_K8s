@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+
+  customers:
+    image: banking/customers:latest
+    mem_limit: 700m
+    ports:
+      - "8080:8080"
+      - "8081:8080"
+    networks:
+      - banking-network
+
+  accounts:
+    image: banking/account:latest
+    mem_limit: 700m
+    ports:
+      - "8070:8070"
+    networks:
+      - banking-network
+      
+  cards:
+    image: banking/card:latest
+    mem_limit: 700m
+    ports:
+      - "8060:8060"
+    networks:
+      - banking-network
+    
+  loans:
+    image: banking/loan:latest
+    mem_limit: 700m
+    ports:
+      - "8090:8090"
+    networks:
+      - banking-network
+    
+  
+    
+networks:
+  banking-network:

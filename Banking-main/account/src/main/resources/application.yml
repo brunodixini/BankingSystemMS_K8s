@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    password: ''
+  h2:
+    console:
+      enabled: 'true'
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+server:
+  port: '8070'
+  servlet:
+    context-path: /banking
