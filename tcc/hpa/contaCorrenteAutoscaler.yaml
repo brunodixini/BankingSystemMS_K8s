@@ -1,0 +1,14 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: conta-corrente-hpa
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: conta-corrente
+  minReplicas: 1
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 10
+

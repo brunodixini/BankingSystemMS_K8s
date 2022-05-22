@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: seguro-dep
+  name: seguro
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seguro
+  template:
+    metadata:
+      labels:
+        app: seguro
+    spec:
+      containers:
+        - image: brunodixini/seguro:1.0
+          name: seguro
+          ports:
+          - containerPort: 8080

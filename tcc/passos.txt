@@ -1,0 +1,63 @@
+- criar as imagens e salvá-las em um repo local
+docker build -t brunodixini/cashback:1.0 . (na paste onde se encontra o Dockerfile)
+
+- subir as imagens para o docker hub 
+(tirar print imagens no docker local e da opção de subir pro docker hub)
+
+- mostrar local definido no deployment de cada serviço
+
+- iniciar o cluster
+minikube start
+minikube addons enable ingress
+
+- criar deployments
+kubectl create -f cashbackDep.yaml
+kubectl create -f contaCorrenteDep.yaml
+
+- Criar services
+kubectl create -f cashbackSvc.yaml
+kubectl create -f contaCorrenteSvc.yaml
+
+- Criar ingress e conferir se esta mapeando todos os services
+kubectl create -f .
+kubectl describe ingress my-ingress
+
+- Criar namespace "monitoring", instalar o prometheus stack (explicar componentes)
+kubectl create ns monitoring
+kubectl config set-context --current --namespace=monitoring
+helm install prometheus prometheus-community/kube-prometheus-stack
+
+- Voltar pro namespace "default"
+kubectl config set-context --current --namespace=default
+
+- crar deployment do metrics-server
+add nas referencias: https://github.com/kubernetes-sigs/metrics-server/releases
+add nas referencias: https://github.com/abhinavxeon/micronautcrud/tree/main/crudmicronaut
+entrar na pasta metricServerrr e dar um kubectl apply -f .
+
+
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.0/components.yaml
+kubectl get deployment metrics-server -n kube-system
+export EDITOR=nano
+export VISUAL="$EDITOR"
+kubectl edit deploy -n kube-system metrics-server
+adicionar: - --kubelet-insecure-tls
+           - --metric-resolution=30s  
+kubectl get deployment metrics-server -n kube-system
+(se nao funcionar: https://bitnami.com/stack/metrics-server/helm)
+
+helm --install metrics-server bitnami/metrics-server \ 
+ --create-namespace --namespace metrics-server \
+ --set apiService.create=true \
+ --set extraArgs.kubelet-insecure-tls=true \
+ --set extraArgs.kubelet-preferred-address-types=InternalIP
+
+- criar hpa e verificar se ta funcionando
+kubectl create -f cashbackAutoscaler.yaml
+kubectl describe hpa cashback-hpa
+
+- Expor ingress
+minikube tunnel
+
+- Acessar grafana (admin/prom-operator)
+kubectl port-forward deployment/prometheus-grafana 3000 --namespace=monitoring

@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - host: a.localhost
+    http:
+      paths:
+      - path: /cashback
+        pathType: Prefix
+        backend:
+          service:
+            name: cashback-svc
+            port: 
+              number: 8080
+      - path: /contacorrente
+        pathType: Prefix
+        backend:
+          service:
+            name: conta-corrente-svc
+            port: 
+              number: 8080
+
+              

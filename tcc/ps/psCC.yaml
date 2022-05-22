@@ -1,0 +1,21 @@
+config:
+  # we don't set loopsNumber, so it will loop indefinitely
+  minSecondsBetweenRuns: 1
+  maxSecondsBetweenRuns: 30
+
+nodeScenarios: []
+podScenarios:
+  - name: "delete random pods in default namespace"
+
+    match:
+      - namespace:
+          name: "default"
+
+    filters:
+      - randomSample:
+          size: 1
+
+    actions:
+      - kill:
+          probability: 0.77
+          force: true
