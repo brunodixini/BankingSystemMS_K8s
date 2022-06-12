@@ -10,9 +10,9 @@ public class AccountService {
     @Inject
     private CrudService repo;
 
-    public Object getUser(Integer id) {
+    public Object get(String cpf) {
         return "OK";
     }
 
-    public Object saveUser(String name, String cpf) { return "OK"; }
+    public Object post(String name, String cpf) { return "OK"; }
 }

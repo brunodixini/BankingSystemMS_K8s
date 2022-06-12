@@ -13,16 +13,16 @@ public class AppController {
     @Inject
     AccountService accountService;
 
-    @Get("/user")
+    @Get
     @Produces(MediaType.APPLICATION_JSON)
-    public Object getUser(@Header int id) {
-        return accountService.getUser(id);
+    public Object getUser(@Header String cpf) {
+        return accountService.get(cpf);
     }
 
-    @Post("/user")
+    @Post
     @Produces(MediaType.APPLICATION_JSON)
     public Object postUser(@Header String name, @Header String cpf) {
-        return accountService.saveUser(name, cpf);
+        return accountService.post(name, cpf);
     }
 }
 
