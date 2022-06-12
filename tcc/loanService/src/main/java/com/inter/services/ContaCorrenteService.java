@@ -10,11 +10,11 @@ public class ContaCorrenteService {
     @Inject
     CrudService transactionService;
 
-    public Object getLoans(String cpf) {
+    public Object get(String cpf) {
         return "OK";
     }
 
-    public Object saveLoan(String name, String cpf) {
+    public Object save(String name, String cpf, String amount) {
         return "OK";
     }
 }

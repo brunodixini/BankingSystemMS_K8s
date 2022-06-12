@@ -2,12 +2,10 @@ package com.inter.controller;
 
 
 import com.inter.services.ContaCorrenteService;
-import com.inter.services.CrudService;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
 
 import javax.inject.Inject;
-import java.util.Random;
 
 @Controller("/loan")
 public class AppController {
@@ -15,17 +13,17 @@ public class AppController {
     @Inject
     ContaCorrenteService contaCorrenteService;
 
-    @Get("/find")
+    @Get
     @Produces(MediaType.APPLICATION_JSON)
-    public Object getLoan(@Header String cpf) {
-        return contaCorrenteService.getLoans(cpf);
+    public Object get(@Header String cpf) {
+        return contaCorrenteService.get(cpf);
     }
 
-    @Post("/new")
+    @Post
     @Produces(MediaType.APPLICATION_JSON)
-    public Object postLoan(@Header String cpf, @Header String name) {
+    public Object post(@Header String cpf, @Header String name, @Header String amount) {
         // bater no servico de conta para validar conta do cliente e ver se pode fazer emprestimo
-        return contaCorrenteService.saveLoan(name, cpf);
+        return contaCorrenteService.save(name, cpf, amount);
     }
 }
 
