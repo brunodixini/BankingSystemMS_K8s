@@ -10,9 +10,9 @@ public class CustomerService {
     @Inject
     CrudService transactionService;
 
-    public Object getCustomer(String cpf) {
+    public Object get(String cpf) {
         return "OK";
     }
 
-    public Object saveCustomer(String name, String cpf) { return "OK"; }
+    public Object save(String name, String cpf) { return "OK"; }
 }

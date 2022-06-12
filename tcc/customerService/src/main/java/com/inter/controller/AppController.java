@@ -7,22 +7,22 @@ import io.micronaut.http.annotation.*;
 
 import javax.inject.Inject;
 
-@Controller("/customerInformation")
+@Controller("/customer")
 public class AppController {
 
     @Inject
     CustomerService customerService;
 
-    @Get("/customer")
+    @Get
     @Produces(MediaType.APPLICATION_JSON)
-    public Object getCustomer(@Header String cpf) {
-        return customerService.getCustomer(cpf);
+    public Object get(@Header String cpf) {
+        return customerService.get(cpf);
     }
 
-    @Post("/customer")
+    @Post
     @Produces(MediaType.APPLICATION_JSON)
-    public Object postCustomer(@Header String name, @Header String cpf) {
-        return customerService.saveCustomer(name, cpf);
+    public Object post(@Header String name, @Header String cpf) {
+        return customerService.save(name, cpf);
     }
 }
 
