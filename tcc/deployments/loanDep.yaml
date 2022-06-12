@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: seguro-dep
-  name: seguro
+    app: loan-dep
+  name: loan
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: seguro
+      app: loan
   template:
     metadata:
       labels:
-        app: seguro
+        app: loan
     spec:
       containers:
-        - image: brunodixini/seguro:1.0
-          name: seguro
+        - image: brunodixini/loan-service:latest
+          name: loan
           ports:
-          - containerPort: 8080
+            - containerPort: 8080

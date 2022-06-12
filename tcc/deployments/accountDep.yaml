@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: cashback-dep
-  name: cashback
+    app: account-dep
+  name: account
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: cashback
+      app: account
   template:
     metadata:
       labels:
-        app: cashback
+        app: account
     spec:
       containers:
-        - image: brunodixini/cashback:1.0
-          name: cashback
+        - image: brunodixini/account-service:latest
+          name: account-service
           ports:
-          - containerPort: 8080
+            - containerPort: 8080
           resources:
             requests:
               cpu: 100m
