@@ -11,19 +11,31 @@ spec:
   - host: bancointer
     http:
       paths:
-      - path: /cashback
-        pathType: Prefix
-        backend:
-          service:
-            name: cashback-svc
-            port: 
-              number: 8080
-      - path: /contacorrente
-        pathType: Prefix
-        backend:
-          service:
-            name: conta-corrente-svc
-            port: 
-              number: 8080
-
-              
+        - path: /account
+          pathType: Prefix
+          backend:
+            service:
+              name: account-svc
+              port:
+                number: 8080
+        - path: /card
+          pathType: Prefix
+          backend:
+            service:
+              name: card-svc
+              port:
+                number: 8080
+        - path: /customer
+          pathType: Prefix
+          backend:
+            service:
+              name: customer-svc
+              port:
+                number: 8080
+        - path: /loan
+          pathType: Prefix
+          backend:
+            service:
+              name: loan-svc
+              port:
+                number: 8080
