@@ -10,7 +10,7 @@ public class CardService {
     @Inject
     CrudService repo;
 
-    public Object getCard(Integer id) {
+    public Object getCard(String cardAccount) {
         return "OK";
     }
 

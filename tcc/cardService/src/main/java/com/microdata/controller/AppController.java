@@ -7,21 +7,21 @@ import io.micronaut.http.annotation.*;
 
 import javax.inject.Inject;
 
-@Controller("/cardAccount")
+@Controller("/card")
 public class AppController {
 
     @Inject
     CardService cardService;
 
-    @Get("/card")
+    @Get
     @Produces(MediaType.APPLICATION_JSON)
-    public Object getCard(@Header int id) {
-        return cardService.getCard(id);
+    public Object get(@Header String cardAccount) {
+        return cardService.getCard(cardAccount);
     }
 
-    @Post("/card")
+    @Post
     @Produces(MediaType.APPLICATION_JSON)
-    public Object postCard(@Header String name, @Header String cardNumber) {
+    public Object post(@Header String name, @Header String cardNumber) {
         // bater no userService pra validar usuario e ver se pode criar cartao
         return cardService.postCard(cardNumber);
     }
