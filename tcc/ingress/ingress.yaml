@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - host: a.localhost
+  - host: bancointer
     http:
       paths:
       - path: /cashback
