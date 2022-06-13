@@ -1,6 +1,7 @@
 package com.inter.controller;
 
 
+import com.inter.services.AccountService;
 import com.inter.services.ContaCorrenteService;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
@@ -13,6 +14,9 @@ public class AppController {
     @Inject
     ContaCorrenteService contaCorrenteService;
 
+    @Inject
+    AccountService accountService;
+
     @Get
     @Produces(MediaType.APPLICATION_JSON)
     public Object get(@Header String cpf) {
@@ -21,9 +25,14 @@ public class AppController {
 
     @Post
     @Produces(MediaType.APPLICATION_JSON)
-    public Object post(@Header String cpf, @Header String name, @Header String amount) {
-        // bater no servico de conta para validar conta do cliente e ver se pode fazer emprestimo
-        return contaCorrenteService.save(name, cpf, amount);
+    public Object post(@Header String name, @Header String banckAccount, @Header String amount) {
+        String validationresponse = accountService.validateAccount(banckAccount);
+        if(validationresponse.equals("OK")) {
+            contaCorrenteService.save(name, "CPF vasi vir na response", amount);
+            return "Conta corrente validada e empréstimo concedido.";
+        } else {
+            return "Conta corrente nao encontrada.";
+        }
     }
 }
 

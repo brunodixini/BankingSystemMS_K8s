@@ -7,7 +7,6 @@ import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
 
 import javax.inject.Inject;
-import java.util.Optional;
 
 @Controller("/account")
 public class AppController {

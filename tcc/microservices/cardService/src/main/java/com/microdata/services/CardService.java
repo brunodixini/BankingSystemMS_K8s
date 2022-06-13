@@ -10,10 +10,10 @@ public class CardService {
     @Inject
     CrudService repo;
 
-    public Object getCard(String cardAccount) {
+    public Object get(String cardAccount) {
         return "OK";
     }
 
-    public Object postCard(String cardNumber) {  return "OK"; }
+    public Object post(String name, String cardNumber) {  return "OK"; }
 
 }
