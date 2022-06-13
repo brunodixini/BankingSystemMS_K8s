@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - image: brunodixini/account-service:latest
-          name: account-service
+          name: account
           ports:
             - containerPort: 8080
           resources:

@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - host: bancointer
+  - host: a.localhost
     http:
       paths:
         - path: /account

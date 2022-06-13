@@ -10,15 +10,15 @@ docker build -t brunodixini/cashback:1.0 . (na paste onde se encontra o Dockerfi
 minikube start
 minikube addons enable ingress
 
-- criar deployments
+- criar deployments     kubectl create -f tcc/deployments/.
 kubectl create -f cashbackDep.yaml
 kubectl create -f contaCorrenteDep.yaml
 
-- Criar services
+- Criar services          kubectl create -f tcc/services/.
 kubectl create -f cashbackSvc.yaml
 kubectl create -f contaCorrenteSvc.yaml
 
-- Criar ingress e conferir se esta mapeando todos os services
+- Criar ingress e conferir se esta mapeando todos os services     kubectl create -f tcc/ingress/ingress.yaml
 kubectl create -f .
 kubectl describe ingress my-ingress
 
