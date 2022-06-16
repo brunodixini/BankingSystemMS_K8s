@@ -21,9 +21,8 @@ public class AccountService {
         }
     }
 
-    public Object post(String name, String cpf, String accountNumber) {
+    public Object post(String cpf, String accountNumber) {
         Account newAccount = new Account();
-        newAccount.setName(name);
         newAccount.setCpf(cpf);
         newAccount.setAccount(accountNumber);
         return repository.save(newAccount);

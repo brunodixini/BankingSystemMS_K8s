@@ -1,6 +1,6 @@
-package com.microdata.services;
+package com.inter.domain.services;
 
-import com.microdata.client.AccountClient;
+import com.inter.client.AccountClient;
 import io.micronaut.context.annotation.Prototype;
 
 import javax.inject.Inject;
@@ -15,7 +15,7 @@ public class AccountService {
         try {
             return client.get(cpf).blockingFirst();
         } catch (Exception e) {
-            return e.getMessage();
+            return null;
         }
     }
 }

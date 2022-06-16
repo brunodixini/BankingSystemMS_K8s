@@ -1,4 +1,4 @@
-package com.microdata.client;
+package com.inter.client;
 
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.client.RxHttpClient;

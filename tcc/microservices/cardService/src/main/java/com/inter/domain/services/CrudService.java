@@ -1,12 +1,6 @@
-package com.microdata.services;
+package com.inter.domain.services;
 
-import java.util.List;
-
-import javax.inject.Inject;
 import javax.inject.Singleton;
-
-import com.microdata.dto.Transaction;
-import com.microdata.repo.UserRepository;
 
 @Singleton
 public class CrudService {

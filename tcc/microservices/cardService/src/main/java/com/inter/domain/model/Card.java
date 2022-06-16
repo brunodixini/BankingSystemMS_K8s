@@ -10,8 +10,8 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "accounts")
-public class Account {
+@Table(name = "cards")
+public class Card {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,5 +19,5 @@ public class Account {
 
     private String cpf;
 
-    private String account;
+    private String card;
 }
