@@ -12,9 +12,6 @@ public class CustomerService {
     @Inject
     CustomerRepository repository;
 
-    @Inject
-    CrudService transactionService;
-
     public Customer get(String cpf) {
         try {
             return repository.findByCpf(cpf);

@@ -1,10 +1,9 @@
-package com.microdata.services;
+package com.inter.domain.services;
 
-import com.microdata.client.CustomerClient;
+import com.inter.client.CustomerClient;
 import io.micronaut.context.annotation.Prototype;
 
 import javax.inject.Inject;
-import java.util.Optional;
 
 @Prototype
 public class CustomerService {
@@ -16,7 +15,7 @@ public class CustomerService {
         try {
             return client.getUSerInfo(cpf).blockingFirst();
         } catch (Exception e) {
-            return e.getMessage();
+            return null;
         }
     }
 }

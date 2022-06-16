@@ -1,4 +1,4 @@
-package com.microdata;
+package com.inter;
 
 import io.micronaut.runtime.Micronaut;
 

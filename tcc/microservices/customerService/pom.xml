@@ -53,11 +53,6 @@
 		</dependency>
 		<dependency>
 			<groupId>io.micronaut</groupId>
-			<artifactId>micronaut-validation</artifactId>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.micronaut</groupId>
 			<artifactId>micronaut-http-server-netty</artifactId>
 			<scope>compile</scope>
 		</dependency>
@@ -75,16 +70,6 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.micronaut.test</groupId>
-			<artifactId>micronaut-test-junit5</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -106,12 +91,6 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.persistence</groupId>
-			<artifactId>jakarta.persistence-api</artifactId>
-			<version>2.2.3</version>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
@@ -147,11 +126,6 @@
 							<version>${micronaut.version}</version>
 						</path>
 						<path>
-							<groupId>io.micronaut</groupId>
-							<artifactId>micronaut-validation</artifactId>
-							<version>${micronaut.version}</version>
-						</path>
-						<path>
 							<groupId>io.micronaut.data</groupId>
 							<artifactId>micronaut-data-processor</artifactId>
 							<version>2.0.1</version>
@@ -175,12 +149,6 @@
 									<artifactId>micronaut-inject-java</artifactId>
 									<version>${micronaut.version}</version>
 								</path>
-								<path>
-									<groupId>io.micronaut</groupId>
-									<artifactId>micronaut-validation</artifactId>
-									<version>${micronaut.version}</version>
-								</path>
-
 								<path>
 									<groupId>io.micronaut.data</groupId>
 									<artifactId>micronaut-data-processor</artifactId>

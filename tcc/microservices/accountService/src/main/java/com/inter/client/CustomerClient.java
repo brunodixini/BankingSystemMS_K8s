@@ -1,7 +1,6 @@
-package com.microdata.client;
+package com.inter.client;
 
 import io.micronaut.http.HttpRequest;
-import io.micronaut.http.HttpResponse;
 import io.micronaut.http.client.RxHttpClient;
 import io.micronaut.http.client.annotation.Client;
 import io.reactivex.Flowable;
