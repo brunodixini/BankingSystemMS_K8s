@@ -2,7 +2,7 @@ micronaut:
   application:
     name: crudmicronaut
   server:
-    port: 8081
+    port: 8080
 
 datasources:
   default:

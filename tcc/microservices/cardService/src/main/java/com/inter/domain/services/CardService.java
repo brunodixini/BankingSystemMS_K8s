@@ -10,9 +10,6 @@ import javax.inject.Inject;
 public class CardService {
 
     @Inject
-    CrudService repo;
-
-    @Inject
     private CardRepository repository;
 
     public Card get(String cpf) {

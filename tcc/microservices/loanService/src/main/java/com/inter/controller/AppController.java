@@ -1,18 +1,22 @@
 package com.inter.controller;
 
 
-import com.inter.services.AccountService;
-import com.inter.services.ContaCorrenteService;
+import com.inter.domain.model.Loan;
+import com.inter.domain.services.AccountService;
+import com.inter.domain.services.LoanService;
+import io.micronaut.http.HttpStatus;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
 
 import javax.inject.Inject;
 
+import static java.util.Objects.isNull;
+
 @Controller("/loan")
 public class AppController {
 
     @Inject
-    ContaCorrenteService contaCorrenteService;
+    LoanService loanService;
 
     @Inject
     AccountService accountService;
@@ -20,18 +24,22 @@ public class AppController {
     @Get
     @Produces(MediaType.APPLICATION_JSON)
     public Object get(@Header String cpf) {
-        return contaCorrenteService.get(cpf);
+        Loan loan = loanService.get(cpf);
+        if(isNull(loan)) {
+            return HttpStatus.NO_CONTENT;
+        } else {
+            return loan;
+        }
     }
 
     @Post
     @Produces(MediaType.APPLICATION_JSON)
-    public Object post(@Header String name, @Header String banckAccount, @Header String amount) {
-        String validationresponse = accountService.validateAccount(banckAccount);
-        if(validationresponse.equals("OK")) {
-            contaCorrenteService.save(name, "CPF vasi vir na response", amount);
-            return "Conta corrente validada e empréstimo concedido.";
+    public Object post(@Header String cpf, @Header String amount) {
+        String validationresponse = accountService.validateAccount(cpf);
+        if(isNull(validationresponse)) {
+            return "O cliente ainda não possui conta corrente, não foi possível conceder o empréstimo";
         } else {
-            return "Conta corrente nao encontrada.";
+            return loanService.post(cpf, amount);
         }
     }
 }

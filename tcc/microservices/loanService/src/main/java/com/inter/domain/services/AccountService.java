@@ -1,4 +1,4 @@
-package com.inter.services;
+package com.inter.domain.services;
 
 import com.inter.client.AccountClient;
 import io.micronaut.context.annotation.Prototype;
@@ -15,7 +15,7 @@ public class AccountService {
         try {
             return client.get(cpf).blockingFirst();
         } catch (Exception e) {
-            return e.getMessage();
+            return null;
         }
     }
 }
