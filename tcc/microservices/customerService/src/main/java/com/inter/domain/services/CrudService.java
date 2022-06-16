@@ -1,6 +1,4 @@
-package com.inter.services;
-
-import java.util.List;
+package com.inter.domain.services;
 
 import javax.inject.Singleton;
 
