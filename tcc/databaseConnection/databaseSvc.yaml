@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mk-local-host
+  namespace: default
+  labels:
+    app: mk-local-host
+spec:
+  selector:
+    app: mk-local-host
+  clusterIP: None
+  ports:
+    - name: app
+      port: 5432 # doesn't actually matter
+      protocol: TCP
+
+---
+
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: mk-local-host
+subsets:
+  - addresses:
+      - ip: 192.168.65.2 # command below will update this if needed
+    ports:
+      - port: 5432
+        name: app
+        protocol: TCP

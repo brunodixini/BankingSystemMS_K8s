@@ -61,3 +61,5 @@ minikube tunnel
 
 - Acessar grafana (admin/prom-operator)
 kubectl port-forward deployment/prometheus-grafana 3000 --namespace=monitoring
+
+IP CLUSTER: minikube ssh 'grep host.minikube.internal /etc/hosts | cut -f1'

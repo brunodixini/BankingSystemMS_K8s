@@ -10,8 +10,6 @@ import io.micronaut.http.annotation.*;
 
 import javax.inject.Inject;
 
-import java.util.Objects;
-
 import static java.util.Objects.isNull;
 
 @Controller("/account")
