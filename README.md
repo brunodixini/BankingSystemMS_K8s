@@ -1,6 +1,6 @@
 # BankingSystemMS_K8s
 
-## A banking system in microservice architecture, running in a local k8s cluster.
+## A banking system in microservice architecture, running in a local kubernetes cluster.
 
 ### The following is an instruction list to have the cluster running in your local machine.
 
