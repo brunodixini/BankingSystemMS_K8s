@@ -4,7 +4,7 @@
 
 ### The following is an instruction list to have the cluster running in your local machine.
 
-- Install Minikube, Docker and JDK 8 in your machine.
+- Install JDK 8, Docker and Minikube in your machine.
 
 - Create the docker images from applications and save it in your docker repo (brunodixini is mine)
   - docker build -t brunodixini/cashback:1.0
